@@ -11,18 +11,12 @@
  */
 public class Typist
 {
-    // Fields of class Typist
-    // Hint: you will need six fields. Think carefully about their types.
-    // One of them tracks how far along the passage the typist has reached.
-    // Another tracks whether the typist is currently burnt out.
-    // A third tracks HOW MANY turns of burnout remain (not just whether they are burnt out).
-    // The remaining three should be fairly obvious.
 
     String name;
     char symbol;
     int progress;
     boolean burntOut;
-    int numOfBurnout;
+    int numBurnoutTurns;
     double accuracy;
 
 
@@ -51,7 +45,8 @@ public class Typist
      */
     public void burnOut(int turns)
     {
-
+        this.burnOut = true;
+        this.numBurnoutTurns = turns;
     }
 
     /**
@@ -61,7 +56,13 @@ public class Typist
      */
     public void recoverFromBurnout()
     {
-
+	if (this.burnOut == true && numBurnoutTurns > 0){
+	    this.numBurnoutTurns -= 1;
+	    if (this.numBurnoutTurns == 0){
+		this.burnOut == false;
+	    }
+	}
+	    
     }
 
     /**
@@ -71,7 +72,7 @@ public class Typist
      */
     public double getAccuracy()
     {
-        return 0.0; // placeholder - replace with correct implementation
+        return this.accuracy; 
     }
 
     /**
@@ -83,7 +84,7 @@ public class Typist
      */
     public int getProgress()
     {
-        return 0; // placeholder - replace with correct implementation
+        return this.progress;
     }
 
     /**
@@ -93,7 +94,7 @@ public class Typist
      */
     public String getName()
     {
-        return ""; // placeholder - replace with correct implementation
+        return this.name;
     }
 
     /**
@@ -103,7 +104,7 @@ public class Typist
      */
     public char getSymbol()
     {
-        return ' '; // placeholder - replace with correct implementation
+        return this.symbol;
     }
 
     /**
@@ -114,7 +115,12 @@ public class Typist
      */
     public int getBurnoutTurnsRemaining()
     {
-        return 0; // placeholder - replace with correct implementation
+        if (isBurntOut()){
+	    return this.numBurnoutTurns;
+	}
+	else{
+	    return 0;
+	}
     }
 
     /**
@@ -123,7 +129,7 @@ public class Typist
      */
     public void resetToStart()
     {
-
+	
     }
 
     /**
@@ -133,8 +139,7 @@ public class Typist
      */
     public boolean isBurntOut()
     {
-        return false; // placeholder - replace with correct implementation
-    }
+        return this.burntOut;    }
 
     /**
      * Advances the typist forward by one character along the passage.
