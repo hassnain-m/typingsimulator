@@ -31,6 +31,9 @@ public class Typist
         this.name = typistName;
         this.symbol = typistSymbol;
         this.accuracy = typistAccuracy;
+        this.progress = 0;
+        this.burntOut = false;
+        this.numBurnoutTurns = 0;
     }
 
 
@@ -42,7 +45,7 @@ public class Typist
      */
     public void burnOut(int turns)
     {
-        this.burnOut = true;
+        this.burntOut = true;
         this.numBurnoutTurns = turns;
     }
     
@@ -54,10 +57,10 @@ public class Typist
      */
     public void recoverFromBurnout(){
         
-    	if (this.burnOut == true && numBurnoutTurns > 0){
+    	if (this.burntOut == true && numBurnoutTurns > 0){
     	    this.numBurnoutTurns -= 1;
     	    if (this.numBurnoutTurns == 0){
-        		this.burnOut = false;
+        		this.burntOut = false;
     	    }
     	}
     }
