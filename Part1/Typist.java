@@ -7,7 +7,7 @@
  * It is not optional. Good luck.
  *
  * @author Hassnain
- * @version 24/04/2026
+ * @version 1.1
  */
 public class Typist
 {
