@@ -12,12 +12,12 @@
 public class Typist
 {
 
-    String name;
-    char symbol;
-    int progress;
-    boolean burntOut;
-    int numBurnoutTurns;
-    double accuracy;
+    private String name;
+    private char symbol;
+    private int progress;
+    private boolean burntOut;
+    private int numBurnoutTurns;
+    private double accuracy;
 
 
     // Constructor of class Typist
