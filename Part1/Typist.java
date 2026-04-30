@@ -18,6 +18,7 @@ public class Typist
     private boolean burntOut;
     private int numBurnoutTurns;
     private double accuracy;
+    private boolean mistyped;
 
 
     // Constructor of class Typist
@@ -34,6 +35,7 @@ public class Typist
         this.progress = 0;
         this.burntOut = false;
         this.numBurnoutTurns = 0;
+        this.mistyped = false;
     }
 
 
@@ -144,6 +146,7 @@ public class Typist
         if (isBurntOut() == false){
             this.progress += 1;
         }
+        mistyped = false;
     }
 
     /**
@@ -157,6 +160,7 @@ public class Typist
         if (getProgress() < 0){
             this.progress = 0;
         }
+        mistyped = true;
 
     }
 
@@ -187,4 +191,7 @@ public class Typist
         this.symbol = newSymbol;
     }
 
+    public boolean hasMistyped(){
+        return mistyped;
+    }
 }
