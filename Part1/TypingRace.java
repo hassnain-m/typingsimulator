@@ -18,9 +18,9 @@ public class TypingRace
     private static Typist seat1Typist;
     private static Typist seat2Typist;
     private static Typist seat3Typist;
+    private static Typist winner;
 
     // Accuracy thresholds for mistype and burnout events
-    // (Ty tuned these values "by feel". They may need adjustment.)
     private static final double MISTYPE_BASE_CHANCE = 0.3;
     private static final int    SLIDE_BACK_AMOUNT   = 2;
     private static final int    BURNOUT_DURATION     = 3;
@@ -39,9 +39,11 @@ public class TypingRace
         seat2Typist = null;
         seat3Typist = null;
     }
+    
 
-
+    // main method
     public static void main(String[] args){
+    System.out.println("Working Okay");
     new TypingRace(20);
     startRace();
     }
@@ -105,18 +107,26 @@ public class TypingRace
             printRace();
 
             // Check if any typist has finished the passage
-            if ( raceFinishedBy(seat1Typist) || raceFinishedBy(seat2Typist) || raceFinishedBy(seat3Typist) )
-            {
+            if (raceFinishedBy(seat1Typist)){
                 finished = true;
+                winner = seat1Typist;
             }
+            if (raceFinishedBy(seat2Typist)){
+                finished = true;
+                winner = seat2Typist;
+            }
+            if (raceFinishedBy(seat3Typist)){
+                finished = true;
+                winner = seat3Typist;
+            }
+
 
             // Wait 200ms between turns so the animation is visible
             try {
                 TimeUnit.MILLISECONDS.sleep(200);
             } catch (Exception e) {}
         }
-
-        // TODO (Task 2a): Print the winner's name here
+        System.out.println("The winner of the race is " + winner.getName()); 
     }
 
     /**
