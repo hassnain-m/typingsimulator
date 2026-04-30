@@ -41,8 +41,11 @@ public class TypingRace
 
     // main method calls 
     public static void main(String[] args){
-    new TypingRace(20);
-    startRace();
+    TypingRace race = new TypingRace(40);
+    race.addTypist(new Typist('①', "TURBOFINGERS", 0.85), 1);
+    race.addTypist(new Typist('②', "QWERTY_QUEEN",  0.60), 2);
+    race.addTypist(new Typist('③', "HUNT_N_PECK",   0.30), 3);
+    race.startRace();
     }
 
     /**
@@ -84,9 +87,9 @@ public class TypingRace
         boolean finished = false;
 	
     	// create the typists and use addTypist() to assign them to the fields of this class
-    	addTypist(new Typist('1', "TURBOFINGERS", 0.85), 1);
-    	addTypist(new Typist('2', "QWERTY_QUEEN", 0.60), 2);
-    	addTypist(new Typist('3', "HUNT_N_PECK", 0.30), 3);
+    	// addTypist(new Typist('1', "TURBOFINGERS", 0.85), 1);
+    	// addTypist(new Typist('2', "QWERTY_QUEEN", 0.60), 2);
+    	// addTypist(new Typist('3', "HUNT_N_PECK", 0.30), 3);
 
         // Reset all typists to the start of the passage
         seat1Typist.resetToStart();
