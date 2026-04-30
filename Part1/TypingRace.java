@@ -42,7 +42,7 @@ public class TypingRace
 
 
     public static void main(String[] args){
-	startRace();
+    startRace();
     }
 
     /**
@@ -51,7 +51,7 @@ public class TypingRace
      * @param theTypist  the typist to seat
      * @param seatNumber the seat to place them in (1–3)
      */
-    public void addTypist(Typist theTypist, int seatNumber)
+    public static void addTypist(Typist theTypist, int seatNumber)
     {
         if (seatNumber == 1)
         {
@@ -82,11 +82,16 @@ public class TypingRace
     public static void startRace()
     {
         boolean finished = false;
+	
+    	// create the typists and use addTypist() to assign them to the fields of this class
+    	addTypist(new Typist('1', "TURBOFINGERS", 0.85), 1);
+    	addTypist(new Typist('2', "QWERTY_QUEEN", 0.60), 2);
+    	addTypist(new Typist('3', "HUNT_N_PECK", 0.30), 3);
 
         // Reset all typists to the start of the passage
-        // (Ty was in a hurry here)
         seat1Typist.resetToStart();
         seat2Typist.resetToStart();
+    	seat3Typist.resetToStart();
 
         while (!finished)
         {
