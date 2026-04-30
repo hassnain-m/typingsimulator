@@ -126,7 +126,7 @@ public class TypingRace
      *
      * @param theTypist the typist to advance
      */
-    private void advanceTypist(Typist theTypist)
+    private static void advanceTypist(Typist theTypist)
     {
         if (theTypist.isBurntOut())
         {
@@ -179,7 +179,7 @@ public class TypingRace
      * Shows each typist's position along the passage, burnout state,
      * and a WPM estimate based on current progress.
      */
-    private void printRace()
+    private static void printRace()
     {
         System.out.print('\u000C'); // Clear terminal
 
@@ -196,7 +196,7 @@ public class TypingRace
         printSeat(seat3Typist);
         System.out.println();
 
-        multiplePrint('=', passageLength + 3);
+        a('=', passageLength + 3);
         System.out.println();
         System.out.println("  [zz] = burnt out    [<] = just mistyped");
     }
@@ -213,7 +213,7 @@ public class TypingRace
      *
      * @param theTypist the typist whose lane to print
      */
-    private void printSeat(Typist theTypist)
+    private static void printSeat(Typist theTypist)
     {
         int spacesBefore = theTypist.getProgress();
         int spacesAfter  = passageLength - theTypist.getProgress();
@@ -254,7 +254,7 @@ public class TypingRace
      * @param aChar the character to print
      * @param times how many times to print it
      */
-    private void multiplePrint(char aChar, int times)
+    private static void multiplePrint(char aChar, int times)
     {
         int i = 0;
         while (i < times)
