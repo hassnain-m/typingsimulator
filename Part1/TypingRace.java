@@ -15,9 +15,9 @@ import java.lang.Math;
 public class TypingRace
 {
     private int passageLength;   // Total characters in the passage to type
-    private Typist seat1Typist;
-    private Typist seat2Typist;
-    private Typist seat3Typist;
+    private static Typist seat1Typist;
+    private static Typist seat2Typist;
+    private static Typist seat3Typist;
 
     // Accuracy thresholds for mistype and burnout events
     // (Ty tuned these values "by feel". They may need adjustment.)
