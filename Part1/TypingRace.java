@@ -196,7 +196,7 @@ public class TypingRace
         printSeat(seat3Typist);
         System.out.println();
 
-        a('=', passageLength + 3);
+        multiplePrint('=', passageLength + 3);
         System.out.println();
         System.out.println("  [zz] = burnt out    [<] = just mistyped");
     }
