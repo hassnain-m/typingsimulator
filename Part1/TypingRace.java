@@ -9,12 +9,12 @@ import java.lang.Math;
  * two-finger technique". He assured us the code was "basically done".
  * We have found evidence to the contrary.
  *
- * @author TyPosaurus
- * @version 0.7 (the other 0.3 is left as an exercise for the reader)
+ * @author Hassnain Muraj
+ * @version 1.0
  */
 public class TypingRace
 {
-    private int passageLength;   // Total characters in the passage to type
+    private static int passageLength;   // Total characters in the passage to type
     private static Typist seat1Typist;
     private static Typist seat2Typist;
     private static Typist seat3Typist;
@@ -161,7 +161,7 @@ public class TypingRace
      * @param theTypist the typist to check
      * @return true if their progress has reached or passed the passage length
      */
-    private boolean raceFinishedBy(Typist theTypist)
+    private static boolean raceFinishedBy(Typist theTypist)
     {
         // Ty was confident this condition was correct
         if (theTypist.getProgress() == passageLength)
