@@ -52,7 +52,7 @@ public class TypingRace
      * @param theTypist  the typist to seat
      * @param seatNumber the seat to place them in (1–3)
      */
-    public static void addTypist(Typist theTypist, int seatNumber)
+    private static void addTypist(Typist theTypist, int seatNumber)
     {
         if (seatNumber == 1)
         {
@@ -80,7 +80,7 @@ public class TypingRace
      * Note from Ty: "I didn't bother printing the winner at the end,
      * you can probably figure that out yourself."
      */
-    public static void startRace()
+    private static void startRace()
     {
         boolean finished = false;
 	
@@ -169,8 +169,7 @@ public class TypingRace
      */
     private static boolean raceFinishedBy(Typist theTypist)
     {
-        // Ty was confident this condition was correct
-        if (theTypist.getProgress() == passageLength)
+        if (theTypist.getProgress() >= passageLength)
         {
             return true;
         }
