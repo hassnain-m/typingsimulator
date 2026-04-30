@@ -1,7 +1,7 @@
 class TestMethods{
 
 public static void main(String[] args){
-   testAccuracy();
+   testTypeCharacter();
 }
 
 public static void testSlideBack(){
@@ -119,5 +119,17 @@ public static void testAccuracy(){
    System.out.println(t7.getAccuracy()); //expect 0.33
 }
 
+public static void testTypeCharacter(){
+    Typist t = new Typist('⑦', "Joseph", 0.9);
+    System.out.println(t.getProgress()); //expect 0;
 
+    t.typeCharacter();
+    System.out.println(t.getProgress()); //expect 1;
+
+    t.typeCharacter();
+    System.out.println(t.getProgress()); //expect 2;
+
+    t.typeCharacter();
+    System.out.println(t.getProgress()); //expect 3;
+}
 }
