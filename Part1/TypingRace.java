@@ -41,7 +41,6 @@ public class TypingRace
     }
 
 
-
     public static void main(String[] args){
 	startRace();
     }
@@ -80,7 +79,7 @@ public class TypingRace
      * Note from Ty: "I didn't bother printing the winner at the end,
      * you can probably figure that out yourself."
      */
-    public void startRace()
+    public static void startRace()
     {
         boolean finished = false;
 
