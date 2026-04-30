@@ -37,7 +37,6 @@ public class Typist
     }
 
 
-
     /**
      * Sets this typist into a burnout state for a given number of turns.
      * A burnt-out typist cannot type until their burnout has worn off.
