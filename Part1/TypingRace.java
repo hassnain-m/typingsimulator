@@ -42,6 +42,7 @@ public class TypingRace
 
 
     public static void main(String[] args){
+    new TypingRace(20);
     startRace();
     }
 
