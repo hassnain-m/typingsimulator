@@ -1,5 +1,6 @@
 import java.util.concurrent.TimeUnit;
 import java.lang.Math;
+import java.util.Scanner;
 
 /**
  *
@@ -17,6 +18,7 @@ public class TypingRace
     private static Typist seat3Typist;
     private static Typist winner;
     private static double timeElapsed;
+
 
     // Accuracy thresholds for mistype and burnout events
     private static final double MISTYPE_BASE_CHANCE = 0.3;
@@ -41,7 +43,8 @@ public class TypingRace
 
     // main method calls 
     public static void main(String[] args){
-    TypingRace race = new TypingRace(40);
+    int lengthOfPassage = selectPassageLength();
+    TypingRace race = new TypingRace(lengthOfPassage);
     race.addTypist(new Typist('①', "TURBOFINGERS", 0.85), 1);
     race.addTypist(new Typist('②', "QWERTY_QUEEN",  0.60), 2);
     race.addTypist(new Typist('③', "HUNT_N_PECK",   0.30), 3);
@@ -293,4 +296,48 @@ public class TypingRace
             System.out.println("Final Accuracy: " + winnerAccuracy + " (Declined from " + winner.getAccuracy() +")");
         }
     }
+
+    /**
+     * Asks the user to input a string
+     *
+     * @param message  the message that will be printed to the user that prompts them to enter an input 
+    */
+
+    private static String inputString(String message){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(message);
+        return scanner.nextLine();
+    }
+
+    private static int selectPassageLength(){
+
+        String userInput = inputString("Would you like to proceed with a (C)ustom, (L)ong, (M)edium or (S)hort passage?").toUpperCase();
+        String customString;
+
+        while (!userInput.equals("C") && !userInput.equals("L") && !userInput.equals("M") && !userInput.equals("S")){
+            System.out.println("Please enter a valid character (C, L, M or S)");
+            userInput = inputString("Would you like to proceed with a (C)ustom, (L)ong, (M)edium or (S)hort passage?").toUpperCase();
+        }
+
+        if (userInput.equals("S")){
+            System.out.println("The length of the short passage is 20 characters");
+            return 20;
+        }
+        else if (userInput.equals("M")){
+            System.out.println("The length of the medium passage is 30 characters");
+            return 30;
+        }
+        else if (userInput.equals("L")){
+            System.out.println("The length of the long passage is 40 characters");
+            return 40;
+        }
+        else{
+            customString = inputString("Enter the passage you would like to proceed with");
+            System.out.println("Your custom passage has " + customString.length() + " characters");
+            return customString.length();
+        }
+    }
+
+        
+    
 }
