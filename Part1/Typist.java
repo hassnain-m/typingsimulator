@@ -19,6 +19,7 @@ public class Typist
     private int numBurnoutTurns;
     private double accuracy;
     private boolean mistyped;
+    private int timesSlidBack;
 
 
     // Constructor of class Typist
@@ -36,6 +37,7 @@ public class Typist
         this.burntOut = false;
         this.numBurnoutTurns = 0;
         this.mistyped = false;
+        this.timesSlidBack = 0;
     }
 
 
@@ -161,6 +163,7 @@ public class Typist
             this.progress = 0;
         }
         mistyped = true;
+        timesSlidBack++;
 
     }
 
@@ -193,5 +196,9 @@ public class Typist
 
     public boolean hasMistyped(){
         return mistyped;
+    }
+
+    public int getTimesSlidBack(){
+        return timesSlidBack;
     }
 }

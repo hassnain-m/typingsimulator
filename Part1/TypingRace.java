@@ -2,15 +2,12 @@ import java.util.concurrent.TimeUnit;
 import java.lang.Math;
 
 /**
- * A typing race simulation. Three typists race to complete a passage of text,
- * advancing character by character — or sliding backwards when they mistype.
  *
- * Originally written by Ty Posaurus, who left this project to "focus on his
- * two-finger technique". He assured us the code was "basically done".
- * We have found evidence to the contrary.
  *
  * @author Hassnain Muraj
  * @version 1.0
+ *
+ *Credit goes to Ty Posaurus who made an incomplete start to this project
  */
 public class TypingRace
 {
@@ -19,6 +16,7 @@ public class TypingRace
     private static Typist seat2Typist;
     private static Typist seat3Typist;
     private static Typist winner;
+    private static double timeElapsed;
 
     // Accuracy thresholds for mistype and burnout events
     private static final double MISTYPE_BASE_CHANCE = 0.3;
@@ -41,9 +39,8 @@ public class TypingRace
     }
     
 
-    // main method
+    // main method calls 
     public static void main(String[] args){
-    System.out.println("Working Okay");
     new TypingRace(20);
     startRace();
     }
@@ -124,9 +121,12 @@ public class TypingRace
             // Wait 200ms between turns so the animation is visible
             try {
                 TimeUnit.MILLISECONDS.sleep(200);
+                timeElapsed += 0.2;
             } catch (Exception e) {}
         }
-        System.out.println("The winner of the race is " + winner.getName()); 
+        System.out.println("And the winner is... " + winner.getName()+"!");
+        printWinnerAccuracy();
+        
     }
 
     /**
@@ -276,6 +276,18 @@ public class TypingRace
         while (i < times){
             System.out.print(aChar);
             i = i + 1;
+        }
+    }
+
+    private static void printWinnerAccuracy(){
+        // accuracy is determined by (passageLength - timesSlidBack) / passageLength
+        double winnerAccuracy = ((double)passageLength - (double)winner.getTimesSlidBack()) / (double)passageLength;
+
+        if (winnerAccuracy>winner.getAccuracy()){
+            System.out.println("Final Accuracy: " + winnerAccuracy + " (improved from " + winner.getAccuracy() +")");
+        }
+        else{
+            System.out.println("Final Accuracy: " + winnerAccuracy + " (Declined from " + winner.getAccuracy() +")");
         }
     }
 }
