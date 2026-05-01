@@ -1,7 +1,7 @@
 class TestMethods{
 
 public static void main(String[] args){
-   testTypeCharacter();
+   testBurnout();
 }
 
 public static void testSlideBack(){
@@ -24,6 +24,9 @@ public static void testSlideBack(){
     System.out.println("Your progress is " + t.getProgress()); //expect 0
    t.slideBack(10);
     System.out.println("Your progress is " + t.getProgress()); //expect 0
+    t.slideBack(-5);
+    System.out.println("Your final progress is " + t.getProgress()); //expect 0
+
 }
 
 public static void testBurnout(){
@@ -60,6 +63,10 @@ public static void testBurnout(){
     System.out.println(t.getBurnoutTurnsRemaining()); //expect 1
     
     t.recoverFromBurnout();
+    System.out.println(t.isBurntOut()); //expect false
+    System.out.println(t.getBurnoutTurnsRemaining()); //expect 0
+
+    t.burnOut(-5);
     System.out.println(t.isBurntOut()); //expect false
     System.out.println(t.getBurnoutTurnsRemaining()); //expect 0
 }

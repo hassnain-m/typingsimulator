@@ -48,6 +48,10 @@ public class Typist
      */
     public void burnOut(int turns)
     {
+
+	if (turns < 0){
+	    return;
+	}
         this.burntOut = true;
         this.numBurnoutTurns = turns;
     }
@@ -157,11 +161,16 @@ public class Typist
      * @param amount the number of characters to slide back (must be positive)
      */
     public void slideBack(int amount){
+    	if (amount < 0){
+    	    return;
+    	}
+
         this.progress -= amount;
 
         if (getProgress() < 0){
             this.progress = 0;
         }
+        
         mistyped = true;
         timesSlidBack++;
 

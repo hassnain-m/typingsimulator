@@ -39,15 +39,6 @@ public class TypingRace
     }
     
 
-    // main method calls 
-    public static void main(String[] args){
-    TypingRace race = new TypingRace(40);
-    race.addTypist(new Typist('①', "TURBOFINGERS", 0.85), 1);
-    race.addTypist(new Typist('②', "QWERTY_QUEEN",  0.60), 2);
-    race.addTypist(new Typist('③', "HUNT_N_PECK",   0.30), 3);
-    race.startRace();
-    }
-
     /**
      * Seats a typist at the given seat number (1, 2, or 3).
      *
@@ -232,7 +223,7 @@ public class TypingRace
      * @param theTypist the typist whose lane to print
      */
     private static void printSeat(Typist theTypist)
-{
+    {
     int spacesBefore = theTypist.getProgress();
     int spacesAfter  = passageLength - theTypist.getProgress();
 
@@ -249,7 +240,8 @@ public class TypingRace
         System.out.print(theTypist.getName() + " (Accuracy: " + theTypist.getAccuracy() + ")");
         System.out.print(" BURNT OUT (" + theTypist.getBurnoutTurnsRemaining() + " turns)");
     }
-    else if (theTypist.hasMistyped()){
+    else if (theTypist.hasMistyped())
+    {
         System.out.print(" [<]");
         spacesAfter -= 4;
         multiplePrint(' ', spacesAfter);
@@ -257,7 +249,8 @@ public class TypingRace
         System.out.print(theTypist.getName() + " (Accuracy: " + theTypist.getAccuracy() + ")");
         System.out.print("  <- just mistyped");
     }
-    else{
+    else
+    {
     multiplePrint(' ', spacesAfter);
     System.out.print("| ");
     System.out.print(theTypist.getName() + " (Accuracy: " + theTypist.getAccuracy() + ")");
